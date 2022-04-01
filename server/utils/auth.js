@@ -1,4 +1,3 @@
-const { request } = require('express');
 const jwt = require('jsonwebtoken');
 
 const secret = 'mysecretsshhhhh';
@@ -10,6 +9,7 @@ module.exports = {
 
         return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
     },
+
     authMiddleware: function ({ req }) {
         let token = req.body.token || req.query.token || req.headers.authorization;
 
@@ -35,5 +35,6 @@ module.exports = {
 
         // return updated request object
         return req;
-    }
+    },
+
 };
