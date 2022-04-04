@@ -8,6 +8,7 @@ import { useQuery, useMutation  } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import { ADD_FRIEND } from '../utils/mutations';
 import Auth from '../utils/auth';
+import ThoughtForm from '../components/ThoughtForm';
 
 const Profile = (props) => {
   const [addFriend] = useMutation(ADD_FRIEND);
@@ -66,6 +67,7 @@ const Profile = (props) => {
           <FriendList username={user.username} friednCount={user.friednCount} friends={user.friends} />
         </div>
       </div>
+      <div className="mb-3">{!userParam && <ThoughtForm />}</div>
     </div>
   );
 };
